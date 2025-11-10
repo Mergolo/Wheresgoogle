@@ -1,0 +1,141 @@
+/* ========== GLOBAL STYLES ========== */
+body {
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  text-align: center;
+  background-color: #f4f4f9;
+  margin: 0;
+  padding: 10px;
+}
+
+/* ========== TYPOGRAPHY ========== */
+h1 {
+  color: #333;
+  margin-bottom: 10px;
+  font-size: 2rem;
+}
+
+p {
+  color: #555;
+  margin-bottom: 10px;
+  font-size: 1rem;
+  line-height: 1.6;
+}
+
+#concept-text {
+  max-width: 700px;
+  margin: 20px auto;
+  font-size: 1.1rem;
+  line-height: 1.6;
+  color: #222;
+  text-align: center;
+}
+
+/* ========== GAME CONTAINER ========== */
+#game-container {
+  display: inline-block;
+  position: relative;
+  max-width: 90vw;
+  overflow: hidden;
+  margin: 20px auto;
+}
+
+#scene {
+  width: 100%;
+  height: auto;
+  border-radius: 8px;
+  cursor: crosshair;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+  display: block;
+}
+
+/* ========== MARKER ========== */
+#marker {
+  position: absolute;
+  width: 30px;
+  height: 30px;
+  display: none;
+  transform: translate(-50%, -50%) rotate(45deg);
+  pointer-events: none;
+}
+
+#marker::before,
+#marker::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 50%;
+  width: 4px;
+  height: 100%;
+  background-color: #ff5555;
+  transform: translateX(-50%);
+  border-radius: 2px;
+}
+
+#marker::after {
+  transform: translateX(-50%) rotate(90deg);
+}
+
+/* ========== MESSAGE OVERLAY ========== */
+#message-overlay {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: rgba(255, 255, 255, 0.95);
+  border: 3px solid #333;
+  border-radius: 12px;
+  padding: 30px 50px;
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: #222;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
+  display: none;
+  z-index: 10;
+  animation: fadeIn 0.4s ease-in-out;
+  text-align: center;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translate(-50%, -45%);
+  }
+  to {
+    opacity: 1;
+    transform: translate(-50%, -50%);
+  }
+}
+
+/* ========== BUTTONS ========== */
+#play-again-btn {
+  margin-top: 20px;
+  padding: 12px 25px;
+  font-size: 1.1rem;
+  font-weight: bold;
+  background-color: #ff5555;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+#play-again-btn:hover {
+  background-color: #ff2a2a;
+}
+
+/* ========== LINKS ========== */
+#back-link {
+  display: block;
+  text-align: center;
+  margin-top: 40px;
+  font-size: 1rem;
+  font-weight: bold;
+  text-decoration: none;
+  color: #ff5555;
+  transition: color 0.3s ease;
+}
+
+#back-link:hover {
+  color: #ff2a2a;
+}
