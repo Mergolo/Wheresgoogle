@@ -1,34 +1,80 @@
 <!DOCTYPE html>
-<html lang="en">
-
+<html lang="it">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Where's Google?</title>
+    <title>Where's Google? - Arcade Edition</title>
     <link rel="stylesheet" href="css/style.css">
+    
+    <!-- Font Arcade -->
+    <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
     <link rel="icon" type="image/x-icon" href="../img/streetview_116302.ico">
 </head>
-
 <body>
-    <h1>Where's Google?</h1>
-    <p>Click on the image to guess where the photographer is hiding</p>
 
-    <div id="game-container">
-        <img id="scene" src="img/berlino1.jpg" alt="berlino">
-        <div id="marker"></div>
-    </div>
+    <!-- Effetto Scanline CRT -->
+    <div class="scanlines"></div>
 
-    <div id="message-overlay">
-        You found the photographer!
-        <br>
-        <button id="play-again-btn">Play Again 🔁</button>
+    <div class="arcade-container">
+        
+        <!-- SCHERMATA INIZIALE -->
+        <div id="start-screen" class="screen active">
+            <h1 class="glitch" data-text="WHERE'S GOOGLE?">WHERE'S GOOGLE?</h1>
+            <p class="blink">INSERT COIN TO START</p>
+            
+            <div class="ui-group">
+                <button id="start-btn" class="retro-btn">START GAME</button>
+                <a href="pages/concept.html" class="retro-btn secondary">INFO / CONCEPT</a>
+            </div>
+
+            <div class="instructions" style="margin-top: 30px;">
+                <p>TROVA IL FOTOGRAFO IN 5 LIVELLI</p>
+                <p>IL TEMPO SCORRE...</p>
+            </div>
+        </div>
+
+        <!-- SCHERMATA DI GIOCO -->
+        <div id="game-screen" class="screen">
+            <div class="hud">
+                <div class="hud-item">LEVEL: <span id="level-display">1/5</span></div>
+                <div class="hud-item">TIME: <span id="timer-display">0.00</span>s</div>
+            </div>
+
+            <div id="game-container">
+                <img id="scene" src="" alt="Scene">
+                <div id="marker"></div>
+                <div id="hit-flash"></div>
+            </div>
+            
+            <p id="hint-text">CLICCA SUL FOTOGRAFO!</p>
+        </div>
+
+        <!-- SCHERMATA GAME OVER / LEADERBOARD -->
+        <div id="end-screen" class="screen">
+            <h1 style="color: #f00;">GAME OVER</h1>
+            <p>TEMPO TOTALE: <span id="final-time" class="highlight">0.00</span>s</p>
+            
+            <div id="name-entry-container" class="ui-group">
+                <p>ENTER YOUR INITIALS</p>
+                <input type="text" id="player-name" maxlength="3" placeholder="AAA" autocomplete="off">
+                <button id="submit-score-btn" class="retro-btn">SUBMIT</button>
+            </div>
+
+            <div class="leaderboard-box">
+                <h3>LOCAL HIGH SCORES</h3>
+                <ul id="leaderboard-list">
+                    <li>LOADING...</li>
+                </ul>
+            </div>
+
+            <div class="ui-group" style="flex-direction: row; margin-top: 20px;">
+                <button id="restart-btn" class="retro-btn small">RETRY</button>
+                <button id="clear-scores-btn" class="retro-btn small" style="background: #555;">RESET</button>
+            </div>
+        </div>
+
     </div>
 
     <script src="scripts/script.js"></script>
-
-    <br>
-
-    <a id="concept-link" href="pages/concept.html">Read the concept behind the game →</a>
 </body>
-
 </html>
